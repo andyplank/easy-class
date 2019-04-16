@@ -1,0 +1,12 @@
+{
+  "name": "easyclass",
+  "version": "1.0.0",
+  "description": "An app to help students find the easiest course to take at Purdue",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Andy Plank & Emma Wrege",
+  "license": "ISC"
+}
