@@ -4,6 +4,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 const server = app.listen(process.env.PORT || 8080, () => {
     const port = server.address().port;
