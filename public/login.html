@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>User Login</title>
     <style>
         form {
@@ -22,12 +23,15 @@
             color: #DEFFFC;
             margin-top: 10%;
         }
+        .material-icons.md36 {
+                font-size: 36px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container-fluid text-white">
-        <h1 class="text-center pt-2"><bold>Easy Class</bold></h1>
+        <h1 class="text-center pt-2"><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
         <form autocomplete="off" class="p-2" id="login-form">
             <div class="form-group">
                 <label style="color: #DEFFFC" for="name">Username:</label>
@@ -38,7 +42,7 @@
                 <input type="password" class="form-control" name="password" required placeholder="Password">
             </div>
             <div class="form-group">
-                <button style="background-color: #A28497" submit class="btn btn-info w-100">Login</button>
+                <button style="background-color: #A28497; color:#DEFFFC" submit class="btn btn-info w-100">Login</button>
             </div>
         </form>
     </div>
