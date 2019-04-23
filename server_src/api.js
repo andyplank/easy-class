@@ -1,21 +1,30 @@
 const mongoose = require('mongoose');
-//const schemaCtrl = require('../models/schema');
-const url = "";
+const schema = require('./schema.js');
+const dotenv = require('dotenv');
+dotenv.config();
+const url = 'mongodb+srv://' + process.env.USER + ':' + process.env.PASS + '@easyclass-z2o4s.mongodb.net/test?retryWrites=true';
+const account = require('./functions/account.js')
+
 
 //Setting up the database
 mongoose.connect(url, {
   useNewUrlParser: true
 });
 let db = mongoose.connection;
-    db.once('open', () => {
+  db.once('open', () => {
 });
 
-let login = function login(req, res){
-    res.status(200).sendFile(path.resolve('./public/login.html'));
+let signUp = async (req, res) => {
+  account.signUp(req,res);
+}
+
+let login = async (req, res) => {
+  account.login(req,res);
 }
 
 let api = { 
-    login : login
+  signUp : signUp,
+  login : login
 }
 
 module.exports = api;
