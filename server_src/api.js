@@ -22,9 +22,30 @@ let login = async (req, res) => {
   account.login(req,res);
 }
 
+let courses = async (req, res) => {
+  let courses = await schema.Course.find({});
+  res.status(200).send(courses);
+}
+
+let rating = async (req, res) => {
+  let course = await schema.Course.findOne({_id : req.params.id}).populate({
+    path: "reviews",
+    model: schema.Review,
+    select: "-courseID",
+    populate: {
+      path: "ownerID",
+      model: schema.User,
+      select: "username",
+    }
+  });
+  res.status(200).send(course);
+}
+
 let api = { 
   signUp : signUp,
-  login : login
+  login : login,
+  courses : courses,
+  rating : rating
 }
 
 module.exports = api;

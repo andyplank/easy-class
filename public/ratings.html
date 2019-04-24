@@ -45,10 +45,10 @@
 <body>
     <div class="container-fluid text-white">
         <h1><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
-        <button type="button" class="button1">Back</button>
+        <a href='/coursePage'><button type="button" class="button1">Back</button></a>
         <div style="background-color: #A28497; border: 1px solid #474954; width: 70%; margin: 10px auto; border-radius: 4px" class="card text-center">
             <div style="color: #272635; border: 1px solid #474954" class="card-header">
-                <h5><bold>Course Name</bold></h5>
+                <h5 id="course-name"><bold>Course Name</bold></h5>
             </div>
             <div class="card-body" style="border: 1px solid #474954">
                 <p style="color: #272635" class="card-text"><bold>Course Description.</bold></p>
@@ -57,7 +57,7 @@
         </div>
         <div style="margin: 100px"></div>
         <h2 style="color: #DEFFFC; text-align: center">Ratings</h2>
-        <div class="list-group" style="border: #474954">
+        <div id="ratings" class="list-group" style="border: #474954">
             <div style="background-color: #A28497; border: 1px solid #474954; width: 70%; margin: 10px auto; border-radius: 4px" class="card text-center">
                 <div style="color: #272635; border: 1px solid #474954" class="card-header">
                     <h5><bold>Username?</bold></h5>
@@ -96,7 +96,7 @@
     </div>
 </body>
 
-<script src=""></script>
+<script src="../ratings.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

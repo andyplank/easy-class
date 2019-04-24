@@ -8,12 +8,12 @@ router.use(bodyParser.json());
 const api = require('./api.js');
 const files = require('./files.js');
 
-router.get('/', files.index);
-router.get('/login/', files.login );
-router.get('/course/', files.index);
+router.get('/', files.login);
+router.get('/coursePage/', files.courses);
+router.get('/coursePage/:id', files.course);
 
-router.get('/courses/', files.index);
-router.get('/course/:id', files.index);
+router.get('/courseInfo/', api.courses);
+router.get('/courseInfo/:id', api.rating);
 
 router.post('/signup', api.signUp);
 router.post('/login', api.login);

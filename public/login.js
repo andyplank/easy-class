@@ -13,7 +13,7 @@
             body: data
         })
         .then(res => {
-            if (res.ok) {
+            if (res.status == 200) {
                 const authorization = res.headers.get('Set-Authorization');
                 localStorage.setItem('token', authorization);
                 return res.json();
@@ -21,7 +21,7 @@
         })
         .then(data => {
             if (data) {
-                window.location.href = "/";
+                window.location.href = "/coursePage";
             }
         });
     }

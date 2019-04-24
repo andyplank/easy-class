@@ -14,7 +14,8 @@ let signUp = async (req, res) => {
       res.status(400).send({ message : error.message });
     } else {
       user.save();
-      res.status(200).send();
+      res.setHeader('Set-Authorization', 'Hello');
+      res.status(200).send({message:'Authentication successful '});
     }
 }
 
@@ -32,7 +33,8 @@ let login = async (req, res) => {
         res.status(401).send({message: "Unauthorized"});
         return;
     }
-    res.status(200).send();  
+    res.setHeader('Set-Authorization', 'Hello');
+    res.status(200).send({message:'Authentication successful '});
 }
 
 let account = {

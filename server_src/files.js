@@ -4,11 +4,16 @@ let login = function (req,res){
     res.status(200).sendFile(path.resolve('./public/login.html'));
 }
 
-let index = function (req,res){
+let courses = (req,res) => {
     res.status(200).sendFile(path.resolve('./public/courses.html'));
+}
+
+let course = (req,res) => {
+    res.status(200).sendFile(path.resolve('./public/ratings.html'));
 }
 
 module.exports = {
     login : login,
-    index : index
+    courses : courses,
+    course : course
 }
