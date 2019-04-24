@@ -8,10 +8,92 @@
             crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <title>Ratings</title>
+        <style>
+            body {
+                background-color: #4F7285
+            }
+            .material-icons.md36 {
+                font-size: 36px;
+            }
+            .button1 {
+                background-color: #474954;
+                color: #DEFFFC;
+                margin: 10px 50px;
+                border: 1px solid #272635;
+                cursor: pointer;
+                border-radius: 4px;
+                width: 100px;
+            }
+            .button2 {
+                background-color: #474954;
+                color: #DEFFFC;
+                margin: auto 10px;
+                border: 1px solid #272635;
+                cursor: pointer;
+                border-radius: 4px;
+                width: 150px;
+            }
+            h1 {
+                color: #DEFFFC;
+                padding: 10px;
+                margin: 10px;
+                text-align: center;
+            }
+        </style>
 </head>
 
 <body>
+    <div class="container-fluid text-white">
+        <h1><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
+        <button type="button" class="button1">Back</button>
+        <div style="background-color: #A28497; border: 1px solid #474954; width: 70%; margin: 10px auto; border-radius: 4px" class="card text-center">
+            <div style="color: #272635; border: 1px solid #474954" class="card-header">
+                <h5><bold>Course Name</bold></h5>
+            </div>
+            <div class="card-body" style="border: 1px solid #474954">
+                <p style="color: #272635" class="card-text"><bold>Course Description.</bold></p>
+                <button type="button" class="button2" data-toggle="modal" data-target="#rateClass">Rate this class</button>
+            </div>
+        </div>
+        <div style="margin: 100px"></div>
+        <h2 style="color: #DEFFFC; text-align: center">Ratings</h2>
+        <div class="list-group" style="border: #474954">
+            <div style="background-color: #A28497; border: 1px solid #474954; width: 70%; margin: 10px auto; border-radius: 4px" class="card text-center">
+                <div style="color: #272635; border: 1px solid #474954" class="card-header">
+                    <h5><bold>Username?</bold></h5>
+                </div>
+                <div class="card-body" style="border: 1px solid #474954; color: #272635">
+                    <h5>Rating: {insert rating}</h5>
+                    <p style="color: #272635" class="card-text"><bold>The comments they gave.</bold></p>
+                </div>
+            </div>
+        </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="rateClass" tabindex="-1" role="dialog" aria-labelledby="rateClass" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div style="background-color: #4F7285; border: 1px solid #474954" class="modal-content">
+                    <div style="border: 1px solid #4F7285" class="modal-header">
+                      <h3 style="color: #DEFFFC; text-align: center" class="modal-title" id="rate">Rate This Course</h3>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div style="border: 1px solid #4F7285" class="modal-body">
+                        <form action="/action_page.php" method="get">
+                            <h5 style="color: #DEFFFC; text-align-last: center">Your Rating: </h5>
+                            <input style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" type="range" name="rating" min="1" max="5">
+                            <h5 style="color: #DEFFFC; text-align-last: center; margin-top: 10px">Comments: </h5>
+                            <textarea style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" name="message" rows="5" cols="50"></textarea>
+                        </form>
+                    </div>
+                    <div style="border: 1px solid #4F7285" class="modal-footer">
+                      <button type="button" class="button2" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script src=""></script>
