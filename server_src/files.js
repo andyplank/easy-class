@@ -5,7 +5,7 @@ let login = function (req,res){
 }
 
 let index = function (req,res){
-    res.status(200).sendFile(path.resolve('./public/login.html'));
+    res.status(200).sendFile(path.resolve('./public/courses.html'));
 }
 
 module.exports = {
