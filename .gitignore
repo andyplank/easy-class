@@ -1,2 +1,3 @@
 # backend files to exclude
 node_modules
+.env
