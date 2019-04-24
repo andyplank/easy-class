@@ -41,11 +41,17 @@ let rating = async (req, res) => {
   res.status(200).send(course);
 }
 
+let review = async (req, res) =>{
+  console.log(req.body);
+  res.status(200).send({message: "Goodjob"});
+}
+
 let api = { 
   signUp : signUp,
   login : login,
   courses : courses,
-  rating : rating
+  rating : rating,
+  review : review
 }
 
 module.exports = api;

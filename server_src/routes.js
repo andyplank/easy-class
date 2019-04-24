@@ -17,6 +17,7 @@ router.get('/courseInfo/:id', api.rating);
 
 router.post('/signup', api.signUp);
 router.post('/login', api.login);
+router.post('/review', api.review);
 
 //api
 module.exports = router;
