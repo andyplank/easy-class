@@ -96,14 +96,27 @@
                     <form id="review">
                         <div style="border: 1px solid #4F7285" class="modal-body">
                             <h5 style="color: #DEFFFC; text-align-last: center">Your Rating: </h5>
-                            <input style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" type="range" name="rating" min="1" max="5">
+                            <input name="rating" style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" type="range" name="rating" min="1" max="5">
                             <h5 style="color: #DEFFFC; text-align-last: center; margin-top: 10px">Comments: </h5>
-                            <textarea style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" name="message" rows="5" cols="50"></textarea>
+                            <textarea name="comments" style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" rows="5" cols="50"></textarea>
                             <div style="border: 1px solid #4F7285" class="modal-footer">
                                 <button type="submit" class="button2">Submit</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="errorMsg" tabindex="-1" role="dialog" aria-labelledby="error" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div style="background-color: #4F7285; border: 1px solid #474954" class="modal-content">
+                    <div style="border: 1px solid #4F7285" class="modal-body">
+                        <h5 id="msg" style="color: #DEFFFC; text-align-last: center">Already reviewed this course</h5>
+                        <div style="border: 1px solid #4F7285" class="modal-footer">
+                            <button class="button2" data-toggle="modal" data-target="#errorMsg">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

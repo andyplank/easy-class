@@ -35,7 +35,7 @@ let login = async (req, res) => {
         return;
     }
 
-    const payload = { admin : false };
+    const payload = { user : user._id };
     let token = jwt.sign(payload, process.env.SECRET, {
       expiresIn: '24h'
     });
@@ -53,12 +53,14 @@ let verify = async (req, res) => {
     if (err) {
       return false;       
     } else {
-      return true;
+      return decode;
     }
   });
   if(!status){
     res.status(401).send({message : "Token authentication failed"});
+    return false;
   }
+  return status;
 }
 
 let account = {

@@ -19,3 +19,8 @@
         list.appendChild(button);
     }
 }())
+
+function logout(){
+    localStorage.setItem('token', undefined);
+    window.location.href = '/';
+}

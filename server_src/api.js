@@ -31,7 +31,7 @@ let courses = async (req, res) => {
 
 let rating = async (req, res) => {
   const auth = await account.verify(req, res);
-  if (auth==false) return;
+  if (auth===false) return;
   let course = await schema.Course.findOne({_id : req.params.id}).populate({
     path: "reviews",
     model: schema.Review,
@@ -48,8 +48,34 @@ let rating = async (req, res) => {
 }
 
 let review = async (req, res) =>{
-  console.log(req.body);
-  res.status(200).send({message: "Goodjob"});
+  const auth = await account.verify(req, res);
+  if (auth===false) return;
+  let user = await schema.User.findById(auth.user);
+  let index = user.reviews.find(elm => elm == req.body.courseID);
+  if(index!==undefined){
+    res.status(400).send({message: "Already reviewed"});
+    return;
+  }
+  let course = await schema.Course.findById(req.body.courseID);
+  let id = mongoose.Types.ObjectId()
+  let review = new schema.Review({
+    _id : id,
+    ownerID : auth.user,
+    courseID : req.body.courseID,
+    rating : req.body.rating,
+    comments : req.body.comments
+  });
+  let error = review.validateSync();
+  if(error){
+    res.status(400).send({ message : error.message });
+  } else {
+    course.reviews.push(req.body.courseID);
+    course.save();
+    user.reviews.push(id);
+    user.save();
+    review.save();
+    res.status(200).send({message:'Review successfully posted'});
+  }
 }
 
 let api = { 
