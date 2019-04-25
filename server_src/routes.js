@@ -24,6 +24,7 @@ router.post('/login', api.login);
 
 //Posting a new review
 router.post('/review', api.review);
+router.post('/newCourse', api.newCourse);
 
 //api
 module.exports = router;

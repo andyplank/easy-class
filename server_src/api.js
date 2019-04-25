@@ -86,12 +86,33 @@ let review = async (req, res) =>{
   }
 }
 
+let newCourse = async (req, res) =>{
+  const auth = await account.verify(req, res);
+  if (auth===false) return;
+  let course = await schema.Course.findOne({name : req.body.name});
+  if(course!==null){
+    res.status(400).send({ message : "Course already exists "});    
+    return;
+  }
+  let newCourse = new schema.Course({
+    name : req.body.name,
+  });
+  let error = newCourse.validateSync();
+  if(error){
+    res.status(400).send({ message : error.message });
+  } else {
+    newCourse.save();
+    res.status(200).send({message:'Course successfully added'});
+  }
+}
+
 let api = { 
   signUp : signUp,
   login : login,
   courses : courses,
   rating : rating,
-  review : review
+  review : review,
+  newCourse : newCourse
 }
 
 module.exports = api;

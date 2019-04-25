@@ -9,7 +9,7 @@ let User = new Schema({
 
 let Course = new Schema({
     name : { type : String, required : true },
-    rating : { type : Number, required : true },
+    rating : { type : Number, default : 0, required : true },
     reviews: { type: [Schema.Types.ObjectId], default: [], ref: "Review", required : true},
 });
 

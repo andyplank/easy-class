@@ -1,5 +1,6 @@
+const token = localStorage.getItem('token');
+
 (function() {
-    const token = localStorage.getItem('token');
     fetch(`/courseInfo/`, {
         headers: {
             'Authorization': token
@@ -24,3 +25,28 @@ function logout(){
     localStorage.setItem('token', undefined);
     window.location.href = '/';
 }
+
+(function(){
+    const form = document.getElementById('newCourse');
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = new URLSearchParams();
+        for (const pair of formData) {
+            data.append(pair[0], pair[1]);
+        }
+        fetch("/newCourse", {
+            method: "POST",
+            headers: {
+                'Authorization': token
+            },
+            body: data
+        })
+        .then(res => {
+            $('#courseModal').modal('hide');
+            if(res.status==200){
+                location.reload();       
+            };
+        })
+    }
+}())
