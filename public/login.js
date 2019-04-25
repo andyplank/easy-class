@@ -1,6 +1,5 @@
 (function() {
     const form = document.getElementById('login-form');
-    
     form.onsubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(form);

@@ -47,22 +47,17 @@ let login = async (req, res) => {
 
 let verify = async (req, res) => {
   let token = req.headers.authorization;
-  if (token) {
-    // verifies secret and checks exp
-    let test = await jwt.verify(token, process.env.SECRET) 
-    // (err, decoded) => {       
-    //   if (err) {
-    //     res.status(401).send({message : "Failed to authenticate token"});
-    //     return false;       
-    //   } else {
-    //     // if everything is good, save to request for use in other routes
-    //     req.decoded = decoded;         
-    //     next();
-    //   }
-    // });
-    console.log(test);
-  } else {
-
+  // verifies secret and checks exp
+  let status = await jwt.verify(token, process.env.SECRET, 
+  (err, decode) => {       
+    if (err) {
+      return false;       
+    } else {
+      return true;
+    }
+  });
+  if(!status){
+    res.status(401).send({message : "Token authentication failed"});
   }
 }
 

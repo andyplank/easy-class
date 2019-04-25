@@ -23,12 +23,15 @@ let login = async (req, res) => {
 }
 
 let courses = async (req, res) => {
-  account.verify(req, res);
+  const auth = await account.verify(req, res);
+  if (auth===false) return;
   let courses = await schema.Course.find({});
   res.status(200).send(courses);
 }
 
 let rating = async (req, res) => {
+  const auth = await account.verify(req, res);
+  if (auth==false) return;
   let course = await schema.Course.findOne({_id : req.params.id}).populate({
     path: "reviews",
     model: schema.Review,
