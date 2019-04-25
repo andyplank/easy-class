@@ -23,6 +23,7 @@ let login = async (req, res) => {
 }
 
 let courses = async (req, res) => {
+  account.verify(req, res);
   let courses = await schema.Course.find({});
   res.status(200).send(courses);
 }
@@ -37,8 +38,10 @@ let rating = async (req, res) => {
       model: schema.User,
       select: "username",
     }
-  });
-  res.status(200).send(course);
+  }).catch(err => res.status(400).send(err));
+  if(course!==null){
+    res.status(200).send(course);
+  }
 }
 
 let review = async (req, res) =>{

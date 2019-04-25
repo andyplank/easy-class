@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const schema = require('../schema.js');
+const jwt = require('jsonwebtoken');
 
 let signUp = async (req, res) => {
   
@@ -33,13 +34,42 @@ let login = async (req, res) => {
         res.status(401).send({message: "Unauthorized"});
         return;
     }
-    res.setHeader('Set-Authorization', 'Hello');
+
+    const payload = { admin : false };
+    let token = jwt.sign(payload, process.env.SECRET, {
+      expiresIn: '24h'
+    });
+
+    // return the information including token as JSON
+    res.setHeader('Set-Authorization', token);
     res.status(200).send({message:'Authentication successful '});
+}
+
+let verify = async (req, res) => {
+  let token = req.headers.authorization;
+  if (token) {
+    // verifies secret and checks exp
+    let test = await jwt.verify(token, process.env.SECRET) 
+    // (err, decoded) => {       
+    //   if (err) {
+    //     res.status(401).send({message : "Failed to authenticate token"});
+    //     return false;       
+    //   } else {
+    //     // if everything is good, save to request for use in other routes
+    //     req.decoded = decoded;         
+    //     next();
+    //   }
+    // });
+    console.log(test);
+  } else {
+
+  }
 }
 
 let account = {
     signUp : signUp,
-    login : login
+    login : login,
+    verify : verify
 }
 
 module.exports = account;

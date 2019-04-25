@@ -6,7 +6,7 @@
         }
     })
     .then(res => res.json())
-    .then(data => {console.log(data); display(data)});
+    .then(data => display(data));
     function display(data){
         data.forEach(item => showData(item));
     }
