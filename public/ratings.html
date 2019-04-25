@@ -73,7 +73,7 @@
                 <h5 id="course-name"><bold>Course Name</bold></h5>
             </div>
             <div class="card-body" style="border: 1px solid #474954">
-                <p style="color: #272635" class="card-text"><bold>Course Description.</bold></p>
+                <p id="rating" style="color: #272635" class="card-text"><bold>Course Description.</bold></p>
                 <button type="button" class="button2" data-toggle="modal" data-target="#rateClass">Rate this class</button>
             </div>
         </div>
@@ -95,8 +95,9 @@
                     </div>
                     <form id="review">
                         <div style="border: 1px solid #4F7285" class="modal-body">
-                            <h5 style="color: #DEFFFC; text-align-last: center">Your Rating: </h5>
+                            <h5 style="color: #DEFFFC; text-align-last: center">How easy was this course?</h5>
                             <input name="rating" style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" type="range" name="rating" min="1" max="5">
+                            <p class="text-center">Harder --- Easier</p>
                             <h5 style="color: #DEFFFC; text-align-last: center; margin-top: 10px">Comments: </h5>
                             <textarea name="comments" style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto" rows="5" cols="50"></textarea>
                             <div style="border: 1px solid #4F7285" class="modal-footer">

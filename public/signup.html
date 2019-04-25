@@ -32,27 +32,28 @@
 <body>
     <div class="container-fluid text-white">
         <h1 class="text-center pt-2"><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
-        <form autocomplete="off" class="p-2" id="login-form">
+        <form autocomplete="off" class="p-2" id="signup-form">
             <div class="form-group">
                 <label style="color: #DEFFFC" for="name">Username:</label>
                 <input type="text" class="form-control" name="username" required placeholder="Username">
             </div>
             <div class="form-group">
                 <label style="color: #DEFFFC" for="password">Password:</label>
-                <input type="password" class="form-control" name="password" required placeholder="Password">
+                <input type="password" class="form-control" name="password" id = "pass" required placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label style="color: #DEFFFC" for="password">Password:</label>
+                <input type="password" class="form-control" id="confirm-pass" required placeholder="Password">
             </div>
             <div class="form-group">
                 <button style="background-color: #A28497; color:#DEFFFC" type="submit" class="btn btn-info w-100">Login</button>
-            </div>
-            <div class="form-group">
-                <a href="/signup" style="background-color: #A28497; color:#DEFFFC" class="btn btn-info w-100">Sign Up</a>
             </div>
         </form>
     </div>
 </body>
 
 
-<script src="login.js"></script>
+<script src="signup.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

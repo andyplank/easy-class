@@ -11,6 +11,8 @@
     function showData(item) {
         let name = document.getElementById('course-name');
         name.innerHTML = item.name;
+        let rating = document.getElementById('rating');
+        rating.innerHTML = item.rating;
         item.reviews.forEach(element => {
             showReview(element);
         });

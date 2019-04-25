@@ -25,7 +25,7 @@ let login = async (req, res) => {
 let courses = async (req, res) => {
   const auth = await account.verify(req, res);
   if (auth===false) return;
-  let courses = await schema.Course.find({});
+  let courses = await schema.Course.find({}).sort({rating : -1});
   res.status(200).send(courses);
 }
 
@@ -43,6 +43,16 @@ let rating = async (req, res) => {
     }
   }).catch(err => res.status(400).send(err));
   if(course!==null){
+    var rating = 0;
+    var numRatings = 0;
+    course.reviews.forEach(review => {
+      rating += review.rating;
+      numRatings++;
+    });
+    if(numRatings!=0){
+      course.rating = rating/numRatings;
+      course.save();
+    }
     res.status(200).send(course);
   }
 }
@@ -57,9 +67,7 @@ let review = async (req, res) =>{
     return;
   }
   let course = await schema.Course.findById(req.body.courseID);
-  let id = mongoose.Types.ObjectId()
   let review = new schema.Review({
-    _id : id,
     ownerID : auth.user,
     courseID : req.body.courseID,
     rating : req.body.rating,
@@ -69,9 +77,9 @@ let review = async (req, res) =>{
   if(error){
     res.status(400).send({ message : error.message });
   } else {
-    course.reviews.push(req.body.courseID);
+    course.reviews.push(review._id);
     course.save();
-    user.reviews.push(id);
+    user.reviews.push(course._id);
     user.save();
     review.save();
     res.status(200).send({message:'Review successfully posted'});

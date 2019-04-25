@@ -6,10 +6,11 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 const api = require('./api.js');
-const files = require('./files.js');
+const files = require('./functions/files.js');
 
 //Sending the files
 router.get('/', files.login);
+router.get('/signup', files.signUp)
 router.get('/coursePage/', files.courses);
 router.get('/coursePage/:id', files.course);
 

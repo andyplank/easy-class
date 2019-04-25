@@ -31,11 +31,9 @@
             .button2 {
                 background-color: #474954;
                 color: #DEFFFC;
-                margin: 30px 1100px;
                 border: 1px solid #272635;
                 cursor: pointer;
                 border-radius: 4px;
-                width: 100px;
             }
             .material-icons.md36 {
                 font-size: 36px;
@@ -45,12 +43,19 @@
 
 <body>
     <div class="container-fluid text-white">
-        <h1 style="color: #DEFFFC; padding: 10px; margin-top: 10px; margin-bottom: 30px" class="text-center pt-2"><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
-        <h4 style="color: #272635; text-align: center; margin-bottom: 20px">List of Courses at Purdue:</h4>
-        <div id="courses" class="list-group" style="border: #474954">
+        <div class="row">
+            <div class="col-12 pb-4">
+                <h1 style="color: #DEFFFC; padding: 10px; margin-top: 10px; margin-bottom: 30px" class="text-center pt-2"><bold>Easy Class <i class="material-icons md36">spellcheck</i></bold></h1>
+                <h4 style="color: #272635; text-align: center; margin-bottom: 20px">Easiest Courses at Purdue</h4>
+                <div id="courses" class="list-group" style="border: #474954"></div>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                    <button type="button" class="btn button2" onclick="logout()">New Course</button>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                    <a class="btn button2" onclick="logout()">Logout</a>
+            </div>                
         </div>
-        <button type="button" class="button2" onclick="logout()">Logout</button>
-
     </div>
 </body>
 

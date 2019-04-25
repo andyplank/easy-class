@@ -15,7 +15,13 @@ let signUp = async (req, res) => {
       res.status(400).send({ message : error.message });
     } else {
       user.save();
-      res.setHeader('Set-Authorization', 'Hello');
+      const payload = { user : user._id };
+      let token = jwt.sign(payload, process.env.SECRET, {
+        expiresIn: '24h'
+      });
+
+      // return the information including token as JSON
+      res.setHeader('Set-Authorization', token);
       res.status(200).send({message:'Authentication successful '});
     }
 }
