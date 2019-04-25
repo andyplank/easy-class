@@ -63,28 +63,41 @@
     </div>
 
     <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="rateClass" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div style="background-color: #4F7285; border: 1px solid #474954" class="modal-content">
-                    <div style="border: 1px solid #4F7285" class="modal-header">
-                      <h3 style="color: #DEFFFC; text-align: center" class="modal-title" id="rate">New Course</h3>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background-color: #4F7285; border: 1px solid #474954" class="modal-content">
+                <div style="border: 1px solid #4F7285" class="modal-header">
+                    <h3 style="color: #DEFFFC; text-align: center" class="modal-title" id="rate">New Course</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="newCourse">
+                    <div style="border: 1px solid #4F7285" class="modal-body">                            
+                        <div class="form-group">
+                            <label for="usr">Course Name:</label>
+                            <input type="text" name="name" class="form-control" id="usr">
+                        </div>
                     </div>
-                    <form id="newCourse">
-                        <div style="border: 1px solid #4F7285" class="modal-body">                            
-                            <div class="form-group">
-                                <label for="usr">Course Name:</label>
-                                <input type="text" name="name" class="form-control" id="usr">
-                            </div>
-                        </div>
-                        <div style="border: 1px solid #4F7285" class="modal-footer">
-                            <button type="submit" class="button2">Submit</button>
-                        </div>
-                    </form>
+                    <div style="border: 1px solid #4F7285" class="modal-footer">
+                        <button type="submit" class="button2">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="errorMsg" tabindex="-1" role="dialog" aria-labelledby="error" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div style="background-color: #4F7285; border: 1px solid #474954" class="modal-content">
+                <div style="border: 1px solid #4F7285" class="modal-body">
+                    <h5 id="msg" style="color: #DEFFFC; text-align-last: center">Course already exists</h5>
+                    <div style="border: 1px solid #4F7285" class="modal-footer">
+                        <button class="button2" data-toggle="modal" data-target="#errorMsg">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 </body>
 
 <script src="./courses.js"></script>

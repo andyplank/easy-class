@@ -46,7 +46,9 @@ function logout(){
             $('#courseModal').modal('hide');
             if(res.status==200){
                 location.reload();       
-            };
+            } else {
+                $('#errorMsg').modal('show');
+            }
         })
     }
 }())
